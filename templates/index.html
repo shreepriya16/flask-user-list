@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User List</title>
+</head>
+<body>
+    <h2>Users</h2>
+    <ul id="userList"></ul>
+
+    <script>
+        fetch('/users')
+          .then(response => response.json())
+          .then(data => {
+              let list = document.getElementById("userList");
+              data.forEach(user => {
+                  let li = document.createElement("li");
+                  li.textContent = user;
+                  list.appendChild(li);
+              });
+          });
+    </script>
+</body>
+</html>
